@@ -21,6 +21,7 @@ files:
         git clean -qfd
         git checkout -q main
         git reset -q --hard
+        git pull -q
         git submodule -q foreach 'git reset -q --hard HEAD'
         git submodule init && git submodule update
       user: root
