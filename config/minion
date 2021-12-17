@@ -1,0 +1,11 @@
+root_dir: ./config
+file_client: local
+enable_fqdns_grains: false
+file_roots:
+  base:
+    - ./states
+pillar_roots:
+  base:
+    - ./pillars
+module_dirs:
+  - ./modules
