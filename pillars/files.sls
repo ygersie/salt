@@ -19,7 +19,7 @@ files:
 
         cd /srv/salt
         git clean -qfd
-        git checkout main
+        git checkout -q main
         git reset -q --hard
         git submodule -q foreach 'git reset -q --hard HEAD'
         git submodule init && git submodule update
