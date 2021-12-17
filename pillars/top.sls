@@ -1,4 +1,5 @@
 {{ saltenv }}:
   '*':
     - files
+    - repositories
     - crontabs
