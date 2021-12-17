@@ -1,6 +1,32 @@
 files:
   enabled:
-    /tmp/example.hcl:
+    /usr/local/bin/pullgit:
+      contents: |
+        #!/usr/bin/env bash
+
+        # When we already have a file lock, exit
+        lockfile='/var/lock/pullgit'
+
+        if ! (set -o noclobber; echo $$ > "${lockfile}") 2>/dev/null; then
+            oldpid="$(< ${lockfile})"
+            if kill -0 "${oldpid}"; then
+                echo "Lock failed, ${lockfile} already exists for pid ${oldpid} and it is still running" >&2
+                exit 1
+            fi
+            echo $$ > "${lockfile}"
+        fi
+        trap 'rm -f "${lockfile}"; exit $?' INT TERM EXIT
+
+        cd /srv/salt
+        git clean -qfd
+        git checkout main
+        git reset -q --hard
+        git submodule -q foreach 'git reset -q --hard HEAD'
+        git submodule init && git submodule update
+      user: root
+      group: root
+      mode: 550
+    /etc/nomad/jobs/example.hcl:
       contents: |
         job "example" {
             datacenters = ["zone1"]
@@ -72,3 +98,4 @@ files:
                 }
             }
         }
+  disabled: []
