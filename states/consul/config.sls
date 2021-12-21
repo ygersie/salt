@@ -8,7 +8,7 @@ consul-config-files:
     - names:
       - /etc/consul.d/consul.env:
         - contents_pillar: consul:env
-      - /etc/consul.d/config.hcl:
+      - /etc/consul.d/consul.hcl:
         - contents_pillar: consul:config
         - watch_in:
           - service: consul
