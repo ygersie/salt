@@ -6,8 +6,10 @@ consul-config-files:
     - require:
       - pkg: consul
     - names:
+    {% if salt['pillar.get']('consul:env') %}
       - /etc/consul.d/consul.env:
         - contents_pillar: consul:env
+    {% endif %}
       - /etc/consul.d/consul.hcl:
         - contents_pillar: consul:config
         - watch_in:
