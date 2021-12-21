@@ -1,20 +1,4 @@
 nomad:
-  cni:
-    /etc/nomad.d/cni/vlan50.conflist: |
-      {
-          "cniVersion": "0.4.0",
-          "name": "vlan50",
-          "plugins": [
-              {
-                  "type": "macvlan",
-                  "master": "eno2.vlan50",
-                  "ipam": {
-                      "type": "dhcp"
-                  }
-              }
-          ]
-      }
-
   config: |
     advertise {
         http = "127.0.0.1"
@@ -29,8 +13,8 @@ nomad:
 
     client {
         enabled        = true
-        cni_path       = "/opt/nomad/cni/bin"
-        cni_config_dir = "/etc/nomad.d/cni"
+        cni_path       = "/opt/cni/bin"
+        cni_config_dir = "/opt/cni/config"
     }
 
     plugin "docker" {

@@ -15,9 +15,3 @@ nomad-config-files:
       - /etc/nomad.d/nomad.env:
         - contents_pillar: nomad:env
     {% endif %}
-
-    {% for cni_config in salt['pillar.get']('nomad:cni', {}) %}
-      - {{ cni_config }}:
-        - makedirs: True
-        - contents_pillar: nomad:cni:{{ cni_config }}
-    {% endfor %}

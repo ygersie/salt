@@ -4,5 +4,6 @@
     - repositories
     - crontabs
     - archive
+    - cni
     - consul
     - nomad
