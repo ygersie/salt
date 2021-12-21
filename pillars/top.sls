@@ -2,6 +2,7 @@
   '*':
     - files
     - repositories
+    - packages
     - crontabs
     - archive
     - cni
