@@ -7,5 +7,5 @@
 /opt/cni/config/{{ cni_config }}.conflist:
   file.managed:
     - makedirs: True
-    - contents_pillar: nomad:cni:{{ cni_config }}
+    - contents_pillar: cni:{{ cni_config }}
 {% endfor %}
