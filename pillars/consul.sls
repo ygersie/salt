@@ -1,13 +1,13 @@
 consul:
   config: |
-    bind_addr                  = "{{ grains['ipv4_interface']['enp0s3'] }}"
+    bind_addr                  = "{{ grains['ip4_interface']['enp0s3'] }}"
     bootstrap_expect           = 1
     data_dir                   = "/opt/consul"
     datacenter                 = "lan"
     enable_local_script_checks = true
     encrypt                    = "0Bj50J/dqDf0yjLqPD4aBHsCtdDZABFOFt1zgJp1N/I="
     retry_interval             = "1s"
-    retry_join                 = [ "{{ grains['ipv4_interface']['enp0s3'] }}" ]
+    retry_join                 = [ "{{ grains['ip4_interface']['enp0s3'] }}" ]
     server                     = true
     ui_config {
         enabled = true
