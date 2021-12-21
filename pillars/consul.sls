@@ -1,4 +1,9 @@
 consul:
+  version: 1.11.1
+
+  env: |
+    # env variables go here
+
   config: |
     bind_addr                  = "{{ grains['ip4_interfaces']['enp0s3'] }}"
     bootstrap_expect           = 1
