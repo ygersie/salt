@@ -13,13 +13,14 @@ consul-config-files:
         - watch_in:
           - service: consul
 
-{% for key, value in salt['pillar.get']('consul:services', {}).items() %}
-/etc/consul.d/services/{{ "{}.hcl".format(key) }}:
+{% for service in salt['pillar.get']('consul:services', {}) %}
+/etc/consul.d/services/{{ "{}.hcl".format(service) }}:
   file.managed:
     - user: consul
     - group: consul
     - mode: '0600'
     - makedirs: True
+    - contents_pillar: consul:services:{{ service }}
     - require:
       - pkg: consul
     - watch_in:
