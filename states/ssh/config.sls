@@ -7,6 +7,6 @@
     - mode: 0644
     {% if 'sshd_config' in file_path %}
     - watch_in:
-      - service: ssh
+      - cmd: sshd-configtest
     {% endif %}
 {% endfor %}
