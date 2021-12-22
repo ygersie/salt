@@ -9,3 +9,5 @@ pillar_roots:
     - ./pillars
 module_dirs:
   - ./modules
+disable_modules:
+  - event
