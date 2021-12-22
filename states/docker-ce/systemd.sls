@@ -6,6 +6,8 @@
     - group: root
     - mode: 0644
     - makedirs: True
+    - watch_in:
+      - cmd: reload-systemd-docker
     - require_in:
       - service: docker-ce-service
       - pkg: docker-ce
@@ -14,5 +16,3 @@
 reload-systemd-docker:
   cmd.wait:
     - name: systemctl daemon-reload
-    - watch:
-      - file: /etc/systemd/system/docker.service.d/overrides.conf
