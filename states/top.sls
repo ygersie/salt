@@ -1,5 +1,9 @@
 {{ saltenv }}:
   '*':
+    - timezone
+    - sudo
+    - sysctl
+    - discovery
     - files
     - repositories
     - packages
