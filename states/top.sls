@@ -1,11 +1,12 @@
 {{ saltenv }}:
   '*':
     - timezone
+    - repositories
     - sudo
+    - ssh
     - sysctl
     - discovery
     - files
-    - repositories
     - packages
     - crontabs
     - archive
