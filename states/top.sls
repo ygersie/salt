@@ -6,6 +6,7 @@
     - ssh
     - sysctl
     - discovery
+    - users
     - files
     - packages
     - crontabs
