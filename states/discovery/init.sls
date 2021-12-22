@@ -2,7 +2,7 @@ discovery-interface:
   file.managed:
     - user: root
     - group: root
-    - mode: '0640'
+    - mode: '0644'
     - names:
       - /etc/systemd/network/100-discovery.netdev:
         - contents: |
