@@ -1,7 +1,8 @@
 {{ saltenv }}:
   '*':
-    - files
     - repositories
+    - ssh
+    - files
     - packages
     - crontabs
     - archive
