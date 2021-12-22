@@ -7,5 +7,6 @@
     - crontabs
     - archive
     - cni
+    - docker-ce
     - consul
     - nomad
