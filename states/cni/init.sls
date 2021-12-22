@@ -5,7 +5,8 @@
 
 {% for cni_config in salt['pillar.get']('cni:config', {}) %}
 /opt/cni/config/{{ cni_config }}.conflist:
-  file.managed:
+  file.serialize:
     - makedirs: True
-    - contents_pillar: cni:config:{{ cni_config }}
+    - dataset_pillar: cni:config:{{ cni_config }}
+    - formatter: json
 {% endfor %}
