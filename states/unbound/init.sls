@@ -3,4 +3,3 @@ include:
   - .package
   - .config
   - .service
-  - .access

@@ -10,3 +10,4 @@
     - docker-ce
     - consul
     - nomad
+    - unbound
