@@ -1,6 +1,16 @@
 files:
   enabled:
+    /etc/profile.d/hashistack.sh:
+      user: root
+      group: root
+      contents: |
+        complete -C /usr/bin/consul consul
+        complete -C /usr/bin/nomad nomad
+
     /usr/local/bin/pullgit:
+      user: root
+      group: root
+      mode: 550
       contents: |
         #!/usr/bin/env bash
 
@@ -24,9 +34,6 @@ files:
         git pull -q
         git submodule -q foreach 'git reset -q --hard HEAD'
         git submodule init && git submodule update
-      user: root
-      group: root
-      mode: 550
     /etc/nomad/jobs/example.hcl:
       contents: |
         job "example" {
@@ -99,4 +106,5 @@ files:
                 }
             }
         }
+
   disabled: []
