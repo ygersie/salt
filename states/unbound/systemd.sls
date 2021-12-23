@@ -7,12 +7,12 @@
     - mode: 0644
     - makedirs: True
     - watch_in:
-      - cmd: reload-systemd-docker
+      - cmd: unbound-reload-systemd
     - require_in:
       - service: unbound-service
       - pkg: unbound
 {% endif %}
 
-reload-systemd-docker:
+unbound-reload-systemd:
   cmd.wait:
     - name: systemctl daemon-reload
