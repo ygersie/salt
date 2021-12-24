@@ -9,4 +9,6 @@
       - cmd: unbound-configtest
     - require_in:
       - service: unbound
+    - require:
+      - file: /var/run/unbound
 {% endfor %}

@@ -1,6 +1,11 @@
 unbound:
   config:
     /etc/unbound/unbound.conf: |
+      # used by systemd unit to reload unbound
+      remote-control:
+          control-enable: yes
+          control-interface: /var/unbound/unbound-control.sock
+
       server:
           cache-max-negative-ttl: 1
           cache-min-ttl: 1
