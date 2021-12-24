@@ -10,5 +10,5 @@
     - require_in:
       - service: unbound
     - require:
-      - file: /var/run/unbound
+      - file: /var/unbound
 {% endfor %}
