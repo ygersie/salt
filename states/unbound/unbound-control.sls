@@ -1,4 +1,4 @@
-/var/run/unbound:
+/var/unbound:
   file.directory:
     - user: root
     - group: root
