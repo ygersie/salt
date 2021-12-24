@@ -11,7 +11,4 @@
     # we want the config to be deployed before the svc is started
     - require_in:
       - service: unbound
-    # we need the unbound-control socket dir setup before deploying the config
-    - require:
-      - file: /var/unbound
 {% endfor %}

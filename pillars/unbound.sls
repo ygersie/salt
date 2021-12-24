@@ -4,7 +4,8 @@ unbound:
       # used by systemd unit to reload unbound
       remote-control:
           control-enable: yes
-          control-interface: /var/unbound/unbound-control.sock
+          # this path is allowed access by apparmor profile on ubuntu
+          control-interface: /run/unbound.ctl
 
       server:
           cache-max-negative-ttl: 1
