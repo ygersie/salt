@@ -1,5 +1,5 @@
 {% for file_path in salt['pillar.get']('unbound:config', {}) %}
-{{ file_path }}:
+/etc/unbound/{{ file_path }}:
   file.managed:
     - contents_pillar: unbound:config:{{ file_path }}
     - user: root

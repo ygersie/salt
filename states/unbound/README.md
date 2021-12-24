@@ -4,11 +4,14 @@
 
 ```sls
 unbound:
-  resolvconf_search_domains:
-    - salt.dev
+  # contents of /etc/resolv.conf
+  resolv.conf: |
+    nameserver 127.0.0.1
+    search salt.dev
 
+  # config paths relative to /etc/unbound
   config:
-    /etc/unbound/unbound.conf: |
+    unbound.conf: |
       # used by systemd unit to reload unbound
       remote-control:
           control-enable: yes
