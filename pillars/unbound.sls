@@ -1,6 +1,7 @@
 unbound:
-  resolvconf_search_domains:
-    - salt.dev
+  resolv.conf: |
+    nameserver 127.0.0.1
+    search salt.dev
 
   config:
     /etc/unbound/unbound.conf: |
