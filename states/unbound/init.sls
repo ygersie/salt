@@ -3,3 +3,4 @@ include:
   - .package
   - .config
   - .service
+  - .resolvconf

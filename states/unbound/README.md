@@ -1,3 +1,8 @@
+# unbound
+
+## Pillar example
+
+```sls
 unbound:
   resolvconf_search_domains:
     - salt.dev
@@ -50,3 +55,4 @@ unbound:
       stub-zone:
           name: consul
           stub-addr: 127.0.0.1@8600
+```
