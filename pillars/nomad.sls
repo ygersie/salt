@@ -6,16 +6,18 @@ nomad:
         serf = "127.0.0.1"
     }
 
-    bind_addr  = "127.0.0.1"
-
-    data_dir   = "/opt/nomad/data"
-    datacenter = "lan"
+    bind_addr   = "127.0.0.1"
 
     client {
         enabled        = true
         cni_path       = "/opt/cni/bin"
         cni_config_dir = "/opt/cni/config"
     }
+
+    data_dir   = "/opt/nomad/data"
+    datacenter = "lan"
+
+    # log_level = "DEBUG"
 
     plugin "docker" {
         config {
@@ -26,8 +28,6 @@ nomad:
     }
 
     region = "home"
-
-    # log_level = "DEBUG"
 
     server {
         bootstrap_expect = 1

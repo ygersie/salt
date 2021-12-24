@@ -14,12 +14,18 @@ unbound:
           control-interface: /run/unbound.ctl
 
       server:
+          access-control: 169.254.1.1 allow
+          access-control: 10.0.0.0/8 allow
+          access-control: 172.16.0.0/12 allow
+          access-control: 192.168.0.0/16 allow
           cache-max-negative-ttl: 1
           cache-min-ttl: 1
           do-ip6: no
           do-not-query-localhost: no
           domain-insecure: consul
           incoming-num-tcp: 1024
+          interface: 127.0.0.1
+          interface: 169.254.1.1
           minimal-responses: no
           msg-cache-size: 16M
           num-threads: 1
