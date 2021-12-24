@@ -16,7 +16,7 @@ consul-config-files:
           - service: consul
 
 {% for service in salt['pillar.get']('consul:services', {}) %}
-/etc/consul.d/services/{{ "{}.hcl".format(service) }}:
+/etc/consul.d/{{ "service-{}.hcl".format(service) }}:
   file.managed:
     - user: consul
     - group: consul
