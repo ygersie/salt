@@ -15,7 +15,7 @@ consul:
     }
 
     data_dir                   = "/opt/consul"
-    datacenter                 = "lan"
+    datacenter                 = "home"
     disable_update_check       = true
     enable_local_script_checks = true
     encrypt                    = "0Bj50J/dqDf0yjLqPD4aBHsCtdDZABFOFt1zgJp1N/I="

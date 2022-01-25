@@ -2,7 +2,7 @@ unbound:
   # contents of /etc/resolv.conf
   resolv.conf: |
     nameserver 127.0.0.1
-    search salt.dev
+    search service.home.consul node.home.consul
 
   # config paths relative to /etc/unbound
   config:
