@@ -1,11 +1,12 @@
 consul:
-  version: 1.11.1
+  version: 1.11.2
 
   env: |
     # env variables go here
 
   config: |
-    bind_addr        = "{{ grains['ip4_interfaces']['enp0s3'][0] }}"
+    {% raw -%}
+    bind_addr        = "{{ GetDefaultInterfaces | attr \"address\" }}"
     bootstrap_expect = 1
     client_addr      = "127.0.0.1 169.254.1.1"
 
@@ -24,7 +25,7 @@ consul:
     }
 
     retry_interval = "1s"
-    retry_join     = [ "{{ grains['ip4_interfaces']['enp0s3'][0] }}" ]
+    retry_join     = [ "{{ GetDefaultInterfaces | attr \"address\" }}" ]
     server         = true
 
     telemetry {
@@ -34,6 +35,7 @@ consul:
     ui_config {
         enabled = true
     }
+    {% endraw %}
 
   services:
     consul-ui: |
