@@ -21,6 +21,7 @@ nomad:
 
     plugin "docker" {
         config {
+            allow_runtimes = ["runc", "sysbox-runc"]
             volumes {
                 enabled = true
             }
