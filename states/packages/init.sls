@@ -2,9 +2,11 @@ packages-pkg_installed:
   pkg.installed:
     - pkgs: {{ salt['pillar.get']('packages:installed', []) }}
 
+{% if salt['pillar.get']('packages:sources') %}
 packages-pkg_installed-sources:
   pkg.installed:
-    - sources: {{ salt['pillar.get']('packages:sources', []) }}
+    - sources: {{ salt['pillar.get']('packages:sources') }}
+{% endif %}
 
 packages-pkg_latest:
   pkg.latest:

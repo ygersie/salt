@@ -5,6 +5,7 @@ nomad-config-files:
     - mode: '0600'
     - require:
       - pkg: nomad
+    - makedirs: True
     - names:
       - /etc/nomad.d/nomad.hcl:
         - contents_pillar: nomad:config
